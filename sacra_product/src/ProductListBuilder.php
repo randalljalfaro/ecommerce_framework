@@ -13,7 +13,6 @@ use Drupal\Core\Url;
  * @ingroup sacra_product
  */
 class ProductListBuilder extends EntityListBuilder {
-
   use LinkGeneratorTrait;
 
   /**
