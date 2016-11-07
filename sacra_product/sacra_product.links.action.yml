@@ -1,0 +1,11 @@
+entity.sacra_product.add_form:
+  route_name: 'entity.sacra_product.add_page'
+  title: 'Add Product'
+  appears_on:
+    - entity.sacra_product.collection
+entity.sacra_product_type.add_form:
+  route_name: 'entity.sacra_product_type.add_form'
+  title: 'Add Product type'
+  appears_on:
+    - entity.sacra_product_type.collection
+

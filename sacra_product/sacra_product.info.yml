@@ -1,0 +1,5 @@
+name: Sacra Product
+type: module
+description: Creates the blocks for tracking products
+core: 8.x
+package: Sacra Luna

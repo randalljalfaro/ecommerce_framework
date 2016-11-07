@@ -1,0 +1,23 @@
+# Product routing definition
+
+entity.sacra_product.canonical:
+  route_name: entity.sacra_product.canonical
+  base_route: entity.sacra_product.canonical
+  title: 'View'
+
+entity.sacra_product.edit_form:
+  route_name: entity.sacra_product.edit_form
+  base_route: entity.sacra_product.canonical
+  title: 'Edit'
+
+entity.sacra_product.version_history:
+  route_name: entity.sacra_product.version_history
+  base_route: entity.sacra_product.canonical
+  title: 'Revisions'
+
+entity.sacra_product.delete_form:
+  route_name:  entity.sacra_product.delete_form
+  base_route:  entity.sacra_product.canonical
+  title: Delete
+  weight: 10
+

@@ -1,0 +1,58 @@
+<?php
+
+/**
+ * @file
+ * Contains sacra_product.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function sacra_product_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the sacra_product module.
+    case 'help.page.sacra_product':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Creates the blocks for tracking products') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function sacra_product_theme() {
+  $theme = [];
+  $theme['sacra_product'] = array(
+    'render element' => 'elements',
+    'file' => 'sacra_product.page.inc',
+    'template' => 'sacra_product',
+  );
+  $theme['sacra_product_content_add_list'] = [
+    'render element' => 'content',
+    'variables' => ['content' => NULL],
+    'file' => 'sacra_product.page.inc',
+  ];
+  return $theme;
+}
+
+/**
+* Implements hook_theme_suggestions_HOOK().
+*/
+function sacra_product_theme_suggestions_sacra_product(array $variables) {
+  $suggestions = array();
+  $entity = $variables['elements']['#sacra_product'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+  $suggestions[] = 'sacra_product__' . $sanitized_view_mode;
+  $suggestions[] = 'sacra_product__' . $entity->bundle();
+  $suggestions[] = 'sacra_product__' . $entity->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'sacra_product__' . $entity->id();
+  $suggestions[] = 'sacra_product__' . $entity->id() . '__' . $sanitized_view_mode;
+  return $suggestions;
+}
